@@ -11,6 +11,12 @@ class SessionsController < ApplicationController
     else
       flash.now[:danger] = "ログイン成功"
       render "new"
-    end      
+    end
+  end
+
+  def destroy
+    session.delete(:user_id)
+    flash[:notice] = "ログアウト成功"
+    redirect_to new_session_path
   end
 end
