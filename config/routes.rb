@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create, :show]
+  get 'sessions/new'
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users
 end
